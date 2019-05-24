@@ -87,6 +87,6 @@ fetch(
   })
 
   map.on('load', () => {
-    map.addControl(new mapboxgl.NavigationControl(), 'top-left')
+    map.addControl(new mapboxgl.NavigationControl(), 'bottom-left')
   })
 })

@@ -104,7 +104,7 @@ fetch(window.confirm('Are you using TabularMaps?') ? 'https://tabularmaps.github
     }
   });
   map.on('load', function () {
-    map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+    map.addControl(new mapboxgl.NavigationControl(), 'bottom-left');
   });
 });
 
