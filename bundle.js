@@ -3,11 +3,48 @@
 
 var data = require('./data.json');
 
+var lut = {};
+
+for (var _i = 0, _Object$keys = Object.keys(data); _i < _Object$keys.length; _i++) {
+  var k = _Object$keys[_i];
+  var _iteratorNormalCompletion2 = true;
+  var _didIteratorError2 = false;
+  var _iteratorError2 = undefined;
+
+  try {
+    for (var _iterator2 = data[k][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+      var iso3cd = _step2.value;
+      lut[iso3cd] = k;
+    }
+  } catch (err) {
+    _didIteratorError2 = true;
+    _iteratorError2 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+        _iterator2["return"]();
+      }
+    } finally {
+      if (_didIteratorError2) {
+        throw _iteratorError2;
+      }
+    }
+  }
+}
+
+var labels = {
+  conflict: 'Sexual violence in conflict-affected settings',
+  'post-conflict': 'Sexual violence in post-conflict settings',
+  other: 'Other situations of concern'
+};
 var colors = {
   conflict: ['rgb', 255, 142, 0],
   'post-conflict': ['rgb', 255, 0, 139],
   other: ['rgb', 113, 1, 149]
 };
+var overlay = document.getElementById('overlay');
+var country = document.getElementById('country');
+var description = document.getElementById('description');
 fetch(window.confirm('Are you using TabularMaps?') ? 'https://tabularmaps.github.io/8bit-tile/style.json' : 'https://un-vector-tile-toolkit.github.io/tentatiles/style.json').then(function (response) {
   return response.json();
 }).then(function (style) {
@@ -21,7 +58,6 @@ fetch(window.confirm('Are you using TabularMaps?') ? 'https://tabularmaps.github
 
       if (layer.id === 'bnda') {
         layer.paint['fill-color'] = ['match', ['get', 'iso3cd'], data.conflict, colors.conflict, data['post-conflict'], colors['post-conflict'], data.other, colors.other, ['rgb', 250, 250, 250]];
-        console.log(layer.paint['fill-color']);
       }
     }
   } catch (err) {
@@ -44,10 +80,31 @@ fetch(window.confirm('Are you using TabularMaps?') ? 'https://tabularmaps.github
     maxZoom: 2,
     style: style,
     attributionControl: true,
-    hash: true
+    hash: true,
+    renderWorldCopies: false
+  });
+  map.on('mousemove', function (e) {
+    var f = map.queryRenderedFeatures(e.point)[0];
+
+    if (f) {
+      overlay.classList.remove('default', 'conflict', 'post-conflict', 'other');
+      var state = lut[f.properties.iso3cd];
+
+      if (state) {
+        var label = labels[state];
+        overlay.classList.add(state);
+        country.textContent = f.properties.maplab;
+        description.textContent = label;
+        console.log("".concat(f.properties.maplab, ": ").concat(label, " ").concat(overlay.classList));
+      } else {
+        overlay.classList.add('default');
+        country.textContent = '';
+        description.textContent = '';
+      }
+    }
   });
   map.on('load', function () {
-    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.NavigationControl(), 'top-left');
   });
 });
 
