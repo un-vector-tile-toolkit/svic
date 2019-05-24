@@ -1,0 +1,27 @@
+{
+  conflict: [
+    AFG
+    CAF
+    COL
+    COD
+    IRQ
+    LBY
+    MLI
+    MMR
+    SOM
+    SSD
+    SDN
+    SYR
+    YEM
+  ]
+  post-conflict: [
+    BIH
+    CIV
+    NPL
+    LKA
+  ]
+  other: [
+    BDI
+    NGA 
+  ]
+}

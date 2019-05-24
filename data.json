@@ -1,0 +1,27 @@
+{
+  "conflict": [
+    "AFG",
+    "CAF",
+    "COL",
+    "COD",
+    "IRQ",
+    "LBY",
+    "MLI",
+    "MMR",
+    "SOM",
+    "SSD",
+    "SDN",
+    "SYR",
+    "YEM"
+  ],
+  "other": [
+    "BDI",
+    "NGA"
+  ],
+  "post-conflict": [
+    "BIH",
+    "CIV",
+    "NPL",
+    "LKA"
+  ]
+}
