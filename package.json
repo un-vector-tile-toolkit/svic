@@ -1,0 +1,25 @@
+{
+  "name": "svic",
+  "version": "1.0.0",
+  "description": "a test site visualizing areas where UN is active regarding Sexual Violence in Conflict",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/un-vector-tile-toolkit/svic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/un-vector-tile-toolkit/svic/issues"
+  },
+  "homepage": "https://github.com/un-vector-tile-toolkit/svic#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babelify": "^10.0.0"
+  }
+}
