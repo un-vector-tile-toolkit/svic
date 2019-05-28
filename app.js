@@ -1,4 +1,5 @@
 const data = require('./data.json')
+import GestureHandling from '@tilecloud/mbgl-gesture-handling'
 
 const lut = {}
 for (let k of Object.keys(data)) {
@@ -66,6 +67,7 @@ fetch(
     hash: true,
     renderWorldCopies: false
   })
+  new GestureHandling().addTo(map)
 
   map.on('mousemove', (e) => {
     const f = map.queryRenderedFeatures(e.point)[0]

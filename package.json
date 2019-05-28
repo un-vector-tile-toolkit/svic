@@ -20,6 +20,12 @@
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
-    "babelify": "^10.0.0"
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^10.0.0",
+    "cssnano": "^4.1.10"
+  },
+  "dependencies": {
+    "@tilecloud/mbgl-gesture-handling": "^1.0.9",
+    "babel-polyfill": "^6.26.0"
   }
 }
