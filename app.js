@@ -54,7 +54,7 @@ fetch(
         colors['post-conflict'],
         data.other,
         colors.other,
-        ['rgb', 250, 250, 250]
+        ['rgb', 175, 226, 254]
       ]
     }
   }

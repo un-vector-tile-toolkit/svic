@@ -57,7 +57,7 @@ fetch(window.confirm('Are you using TabularMaps?') ? 'https://tabularmaps.github
       var layer = _step.value;
 
       if (layer.id === 'bnda') {
-        layer.paint['fill-color'] = ['match', ['get', 'iso3cd'], data.conflict, colors.conflict, data['post-conflict'], colors['post-conflict'], data.other, colors.other, ['rgb', 250, 250, 250]];
+        layer.paint['fill-color'] = ['match', ['get', 'iso3cd'], data.conflict, colors.conflict, data['post-conflict'], colors['post-conflict'], data.other, colors.other, ['rgb', 175, 226, 254]];
       }
     }
   } catch (err) {
