@@ -67,7 +67,11 @@ fetch(
     hash: true,
     renderWorldCopies: false
   })
-  new GestureHandling().addTo(map)
+  new GestureHandling({
+    backgroundColor: 'rgba(207, 207, 207, 0.8)',
+    textColor: '#000',
+    timeout: 2000
+  }).addTo(map)
 
   map.on('mousemove', (e) => {
     const f = map.queryRenderedFeatures(e.point)[0]
