@@ -67,6 +67,8 @@ fetch(
     hash: true,
     renderWorldCopies: false
   })
+  map.dragRotate.disable()
+  map.touchZoomRotate.disableRotation()
   new GestureHandling({
     backgroundColor: 'rgba(207, 207, 207, 0.8)',
     textColor: '#000',
